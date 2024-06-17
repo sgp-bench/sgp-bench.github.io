@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MMMU</title>
+  <title>SGP-Bench</title>
     <style>
         .hidden {
             display: none;
@@ -14,7 +14,7 @@
         content="A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI">
   <meta name="keywords" content="MMMU, LMM, LMM Evaluation, Vision Language Model, Large Language Model, Large Multimodal Model, artificial intelligence, AI, AGI, artificial general intelligence">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI</title>
+  <title> SGP-Bench: Can Large Language Models Understand Symbolic Graphics Programs?</title>
 
   <link rel="icon" href="./static/images/mmmu_icon2.png">
 
@@ -49,32 +49,6 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://tiger-ai-lab.github.io/MAmmoTH/">
-            <b>MAmmoTH</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
-          </a>
-          <a class="navbar-item" href="https://osu-nlp-group.github.io/TableLlama/">
-            TableLlama 
-            <a class="navbar-item" href="https://osu-nlp-group.github.io/MagicBrush/">
-              MagicBrush
-            </a>
-            <a class="navbar-item" href="https://osu-nlp-group.github.io/Mind2Web/">
-              Mind2Web
-            </a>
-          </a>
-          
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </nav>
 
 
@@ -85,74 +59,66 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title is-bold">
             <img src="static/images/mmmu_icon2.png" style="width:1em;vertical-align: middle" alt="Logo"/> 
-            <span class="mmmu" style="vertical-align: middle">MMMU</span>
+            <span class="mmmu" style="vertical-align: middle">SGP-BENCH</span>
             </h1>
           <h2 class="subtitle is-3 publication-subtitle">
-            A Massive Multi-discipline Multimodal Understanding 
-            <!-- <br> -->
-            and Reasoning Benchmark for Expert AGI
+            Can Large Language Models Understand 
+            <br>
+            Symbolic Graphics Programs?
           </h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://xiangyue9607.github.io/" style="text-decoration: none; color: inherit;">Xiang Yue*<sup style="color:#6fbf73;">†,1</sup></a>,
+              <a href="https://github.com/Zeju1997" style="text-decoration: none; color: inherit;">Zeju Qiu<sup style="color:#ed4b82;">†</sup><sup style="color:#6fbf73;">1</sup></a>,
             </span>
             <span class="author-block">
-              <a href="https://yuanshengni.github.io/" style="text-decoration: none; color: inherit;">Yuansheng Ni*<sup style="color:#ffac33;">2</sup></a>
+              <a href="https://wyliu.com/" style="text-decoration: none; color: inherit;">Weiyang Liu*<sup style="color:#ed4b82;">†</sup><sup style="color:#6fbf73;">1</sup><sup style="color:#ffac33;">2</sup></a>
               ,
             </span>
             <span class="author-block">
-              <a href="https://drogozhang.github.io/" style="text-decoration: none; color: inherit;">Kai Zhang*<sup style="color:#ed4b82;">3</sup></a>
+              <a href="https://ps.is.mpg.de/person/hfeng" style="text-decoration: none; color: inherit;">Haiwen Feng<sup style="color:#ed4b82;">†</sup><sup style="color:#ed4b82;">1</sup></a>
               ,
             </span>
-            <span class="author-block">Tianyu Zheng*<sup style="color:#007bff;">4</sup>,</span><br>
-            <span class="author-block">Ruoqi Liu<sup style="color:#ed4b82;">3</sup>,</span>
-            <span class="author-block">Ge Zhang<sup style="color:#ffac33;">2</sup>,</span>
-            <span class="author-block">Samuel Stevens<sup style="color:#ed4b82;">3</sup>,</span>
-            <span class="author-block">Dongfu Jiang<sup style="color:#ffac33;">2</sup>,</span>
-            <span class="author-block">Weiming Ren<sup style="color:#ffac33;">2</sup>,</span>
-            <span class="author-block">Yuxuan Sun<sup style="color:#007bff;">4</sup>,</span>
-            <span class="author-block">Cong Wei<sup style="color:#ffac33;">2</sup>,</span>
-            <span class="author-block">Botao Yu<sup style="color:#ed4b82;">3</sup>,</span>
-            <span class="author-block">Ruibin Yuan<sup style="color:#ffac33;">5</sup>,</span>
-            <span class="author-block">Renliang Sun<sup style="color:#ffac33;">2</sup>,</span>
-            <span class="author-block">Ming Yin<sup style="color:#9b51e0;">7</sup>,</span>
-            <span class="author-block">Boyuan Zheng<sup style="color:#ed4b82;">3</sup>,</span>
-            <span class="author-block">Zhenzhu Yang<sup style="color:#007bff;">4</sup>,</span>
-            <span class="author-block">Yibo Liu<sup style="color:#ed4b82;">6</sup>,</span>
-            <span class="author-block">Wenhao Huang<sup style="color:#007bff;">4</sup>,</span><br>
             <span class="author-block">
-              <a href="https://web.cse.ohio-state.edu/~sun.397/" style="text-decoration: none; color: inherit;">Huan Sun*<sup style="color:#ed4b82;">3</sup></a>
+              <a href="https://itszhen.com/" style="text-decoration: none; color: inherit;">Zhen Liu<sup style="color:#9b51e0;">‡</sup><sup style="color:#6fbf73;">1</sup><sup style="color:#ed4b82;">3</sup></a>
               ,
           </span>
           <span class="author-block">
-              <a href="https://ysu1989.github.io/" style="text-decoration: none; color: inherit;">Yu Su*<sup style="color:#ed4b82;">†,3</sup></a>
+              <a href="https://timx.me/" style="text-decoration: none; color: inherit;">Tim Z. Xiao<sup style="color:#9b51e0;">‡</sup><sup style="color:#ed4b82;">1</sup><sup style="color:#007bff;">4</sup></a>
               ,
           </span>
           <span class="author-block">
-              <a href="https://wenhuchen.github.io/" style="text-decoration: none; color: inherit;">Wenhu Chen*<sup style="color:#ffac33;">†,2</sup></a>
+              <a href="https://collinskatie.github.io/" style="text-decoration: none; color: inherit;">Katherine M. Collins<sup style="color:#9b51e0;">‡</sup><sup style="color:#ffac33;">2</sup></a>
+          </span>
+          <span class="author-block">
+              <a href="https://web.mit.edu/cocosci/josh.html" style="text-decoration: none; color: inherit;">Joshua B. Tenenbaum<sup style="color:#ffac33;">5</sup></a>
+              ,
+          </span>
+          <span class="author-block">
+              <a href="https://mlg.eng.cam.ac.uk/adrian/" style="text-decoration: none; color: inherit;">Adrian Weller<sup style="color:#ffac33;">2</sup></a>
+              ,
+          </span>
+          <span class="author-block">
+              <a href="https://ps.is.mpg.de/person/black" style="text-decoration: none; color: inherit;">Michael J. Black<sup style="color:#6fbf73;">1</sup></a>
+              ,
+          </span>
+          <span class="author-block">
+              <a href="https://is.mpg.de/~bs" style="text-decoration: none; color: inherit;">Bernhard Schölkopf<sup style="color:#6fbf73;">1</sup></a>
           </span>
           </div>
           
           <br>
           
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup style="color:#6fbf73;">1</sup>IN.AI Research,</span>
-            <span class="author-block"><sup style="color:#ffac33;">2</sup>University of Waterloo,</span>
-            <span class="author-block"><sup style="color:#ed4b82;">3</sup>The Ohio State University,</span>
-            <span class="author-block"><sup style="color:#007bff;">4</sup>Independent,</span></br>
-            <span class="author-block"><sup style="color:#ffac33;">5</sup>Carnegie Mellon University,</span>
-            <span class="author-block"><sup style="color:#ed4b82;">6</sup>University of Victoria,</span>
-            <span class="author-block"><sup style="color:#9b51e0;">7</sup>Princeton University</span>
+            <span class="author-block"><sup style="color:#6fbf73;">1</sup>Max Planck Institute for Intelligent Systems, Tübingen</span>
+            <span class="author-block"><sup style="color:#ffac33;">2</sup>University of Cambridge,</span>
+            <span class="author-block"><sup style="color:#ed4b82;">3</sup>Mila, Université de Montréal,</span>
+            <span class="author-block"><sup style="color:#007bff;">4</sup>University of Tübingen,</span>
+            <span class="author-block"><sup style="color:#ffac33;">5</sup>MIT,</span><br>
+            <span class="author-block"><sup style="color:#ed4b82;">†</sup>Joint first author,</span>
+            <span class="author-block"><sup style="color:#9b51e0;">‡</sup>Joint second author</span>
           </div>
 
           <br>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">*Core Contributors</span><br>
-            <span class="author-block">†Corresponding to:</span>
-            <span class="author-block"><a href="mailto:xiangyue.work@gmail.com">xiangyue.work@gmail.com</a>,</span>
-            <span class="author-block"><a href="mailto:su.809@osu.edu">su.809@osu.edu</a>,</span>
-            <span class="author-block"><a href="mailto:wenhuchen@uwaterloo.ca">wenhuchen@uwaterloo.ca</a></span>
-          </div>
           
 
           <div class="column has-text-centered">
@@ -165,16 +131,7 @@
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://huggingface.co/papers/2311.16502"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <p style="font-size:18px">🤗</p>
-                  </span>
-                  <span>HF Paper</span>
+                  <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
@@ -211,39 +168,7 @@
                 </a>
               </span>
 
-              
-              <!-- Visualization Link. -->
-              <span class="link-block">
-                <a href="https://eval.ai/web/challenges/challenge-page/2179/overview"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon has-text-white">
-                      <!-- <p style="font-size:18px">📖</p> -->
-                      <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <span>EvalAI</span>
-                </a>
-              </span>
-              <!-- Twitter Link. -->
-              <span class="link-block">
-                <a href="https://twitter.com/xiangyue96/status/1729698316554801358"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon has-text-white">
-                    <i class="fa-brands fa-x-twitter"></i>
-                      <!-- <p style="font-size:18px">🌐</p> -->
-                  </span>
-                  <span>Twitter</span>
-                </a>
-              </span>
-              <!-- EvalAI Link. -->
-              <span class="link-block">
-                <a href="#examples"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon has-text-white">
-                    <i class="fa-solid fa-book"></i>
-                  </span>
-                  <span>Examples</span>
-                </a>
-              </span>
+            
             </div>
 
           </div>
@@ -263,9 +188,8 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
         <div class="content has-text-centered">
-          <img src="static/images/overview_mmlu.Jpeg" alt="geometric reasoning" width="100%"/>
-          <p> Overview of the MMMU dataset. MMMU presents four challenges: 1) <b>comprehensiveness</b>: 11.5K college-level problems across six broad disciplines and 30 college subjects; 
-            2) highly <b>heterogeneous</b> image types; 3) <b>interleaved</b> text and images; 4) <b>expert-level</b> perception and reasoning rooted in deep subject knowledge.</p>
+          <img src="static/images/teaser_sgp_web_small.png" alt="geometric reasoning" width="100%"/>
+          <p> Our symbolic graphics program understanding benchmark evaluates both semantic understanding and consistency</p>
         </div>
     </div>
   </div>
@@ -276,19 +200,11 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">🔔News</h2>
-        <div class="content has-text-justified">
-          <p>
-            <b>🚀[2024-01-31]: We added Human Expert performance on the <a href="#leaderboard">Leaderboard</a>!🌟</b>
-          </p>
-          <p>
-            <b>🔥[2023-12-04]: Our evaluation server for the test set is now available on <a href="https://eval.ai/web/challenges/challenge-page/2179/overview"><b>EvalAI</b></a>. We welcome all submissions and look forward to your participation! 😆</b>
-          </p>
-      </div>      
         <h2 class="title is-3">Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce MMMU: a new benchmark designed to evaluate multimodal models on massive multi-discipline tasks demanding college-level subject knowledge and deliberate reasoning. MMMU includes <b>11.5K</b> meticulously collected multimodal questions from college exams, quizzes, and textbooks, covering six core disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering. These questions span <b>30</b> subjects and <b>183</b> subfields, comprising 30 highly heterogeneous image types, such as charts, diagrams, maps, tables, music sheets, and chemical structures. Unlike existing benchmarks, MMMU focuses on advanced perception and reasoning with domain-specific knowledge, challenging models to perform tasks akin to those faced by experts. Our evaluation of 14 open-source LMMs and the proprietary GPT-4V(ision) highlights the substantial challenges posed by MMMU. Even the advanced GPT-4V only achieves a 56% accuracy, indicating significant room for improvement. We believe MMMU will stimulate the community to build next-generation multimodal foundation models towards expert artificial general intelligence.
+            Characterizing the capabilities of LLMs is important to understand what matters and what needs to be improved. Assessing their capabilities, however, can be challenging, in part because it is hard to find tasks to which they have not been exposed during training. To address this, we turn to symbolic graphics programs, which are a popular representation for graphics content that procedurally generates visual data. Large language models (LLMs) have shown exciting promise towards program synthesis, but do they "understand" symbolic graphics programs? Unlike conventional programs, symbolic graphics programs can be translated to graphics content (e.g., 2D images, 3D geometry). Here, we characterize an LLM's "understanding" of symbolic programs in terms of their ability to answer questions related to the graphics (spatial) content. This task is challenging as the questions are difficult to answer from the symbolic programs alone -- yet, they would be easy to answer from the corresponding graphics content as we verify through a human experiment. To understand symbolic programs, LLMs may need to possess the ability to "imagine" how the corresponding graphics content would look without visually seeing it. <br><br>
+            We use this task to evaluate LLMs by creating a large benchmark for the semantic understanding of symbolic graphics programs. This benchmark is built via a novel usage of program-graphics correspondence, hence requiring minimal human efforts. We evaluate both commercial and open-source LLMs on our benchmark to elucidate a preliminary assessment of their ability to reason about visual scenes from programs. We find that this task well distinguishes existing LLMs and models that are considered good at reasoning perform better. Lastly, we introduce a way to improve this ability -- Symbolic Instruction Tuning (SIT). Specifically, we query powerful vision-language models (e.g., GPT-4o) with questions and images generated by symbolic programs. These program-question pairs are collected as our instruction dataset which is then used to finetune an LLM. With a small amount of data, we find that SIT can improve the understanding of LLMs regarding symbolic graphics programs. Assessing the understanding of symbolic graphics programs offers new possibilities for LLMs to perform visual reasoning.
           </p>
         </div>
       </div>
