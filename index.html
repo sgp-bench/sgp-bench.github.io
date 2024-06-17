@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> SGP-Bench: Can Large Language Models Understand Symbolic Graphics Programs?</title>
 
-  <link rel="icon" href="./static/images/mmmu_icon2.png">
+  <link rel="icon" href="./static/images/sgp_icon.png">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -58,7 +58,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title is-bold">
-            <img src="static/images/svglogo.png" style="width:1em;vertical-align: middle" alt="Logo"/> 
+            <img src="static/images/sgp_icon.png" style="width:1em;vertical-align: middle" alt="Logo"/> 
             <span class="mmmu" style="vertical-align: middle">SGP-BENCH</span>
             </h1>
           <h2 class="subtitle is-3 publication-subtitle">
@@ -146,7 +146,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/MMMU-Benchmark/MMMU"
+                <a href="https://github.com"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -324,7 +324,7 @@
             </p>
           </div>
 
-          <button id="toggleButton" onclick="changeButtonText()"><b style='font-size: larger;'>SGP-Bench (SVG)</b> (Click to Switch)</button>
+          <button id="toggleButton" onclick="changeButtonText()"><b style='font-size: larger;'>SGP-Bench (SVG) Leaderboard</b> (Click to Switch)</button>
           <div class="model-labels-container">
             <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">Human Expert</span>
             <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
@@ -2549,7 +2549,7 @@
 <script>
   function changeButtonText() {
     var button = document.getElementById('toggleButton');
-    if (button.innerHTML.includes("Validation Set Leaderboard")) {
+    if (button.innerHTML.includes("SGP-Bench (SVG) Leaderboard")) {
       button.innerHTML = "<b style='font-size: larger;'>SGP-Bench (CAD) Leaderboard</b> (Click to Switch)";
     } else {
       button.innerHTML = "<b style='font-size: larger;'>SGP-Bench (SVG) Leaderboard</b> (Click to Switch)";
