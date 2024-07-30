@@ -38,6 +38,20 @@
   <script src="./data/results/data_setting.js" defer></script>
   <script src="./data/results/model_scores.js" defer></script>
   <script src="./visualizer/data/data_public.js" defer></script>
+
+  <!-- New JavaScript to sort the table on load -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const table = document.getElementById('table1');
+      const rows = Array.from(table.rows).slice(1);
+      const sortedRows = rows.sort((a, b) => {
+        const aValue = parseFloat(a.cells[3].textContent);
+        const bValue = parseFloat(b.cells[3].textContent);
+        return bValue - aValue; // Sort from big to small
+      });
+      sortedRows.forEach(row => table.appendChild(row));
+    });
+  </script>
 </head>
 <body>
 
