@@ -48,8 +48,13 @@
         const table = document.getElementById(tableId);
         if (table) {
           new Tablesort(table);
-          const headerCell = table.rows[0].cells[3]; // Assuming 'Overall' is the 4th column (index 3)
-          Tablesort.prototype.sortTable(headerCell, table);
+          const headerCell = table.querySelector('th:nth-child(4)'); // Assuming 'Overall' is the 4th column
+          if (headerCell) {
+            setTimeout(() => {
+              headerCell.click(); // First click to sort ascending
+              headerCell.click(); // Second click to sort descending
+            }, 100); // Adjust delay as needed
+          }
         }
       }
 
