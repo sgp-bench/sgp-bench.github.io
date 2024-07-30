@@ -38,25 +38,23 @@
   <script src="./data/results/data_setting.js" defer></script>
   <script src="./data/results/model_scores.js" defer></script>
   <script src="./visualizer/data/data_public.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+
 
   <!-- New JavaScript to sort the table on load -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      function sortTable(tableId) {
+      function sortTableByOverall(tableId) {
         const table = document.getElementById(tableId);
         if (table) {
-          const rows = Array.from(table.rows).slice(1);
-          const sortedRows = rows.sort((a, b) => {
-            const aValue = parseFloat(a.cells[3].textContent);
-            const bValue = parseFloat(b.cells[3].textContent);
-            return bValue - aValue; // Sort from big to small
-          });
-          sortedRows.forEach(row => table.appendChild(row));
+          new Tablesort(table);
+          const headerCell = table.rows[0].cells[3]; // Assuming 'Overall' is the 4th column (index 3)
+          Tablesort.prototype.sortTable(headerCell, table);
         }
       }
 
-      sortTable('table1');
-      sortTable('table2');
+      sortTableByOverall('table1');
+      sortTableByOverall('table2');
     });
   </script>
 </head>
