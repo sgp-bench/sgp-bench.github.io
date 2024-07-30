@@ -42,14 +42,21 @@
   <!-- New JavaScript to sort the table on load -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const table = document.getElementById('table1');
-      const rows = Array.from(table.rows).slice(1);
-      const sortedRows = rows.sort((a, b) => {
-        const aValue = parseFloat(a.cells[3].textContent);
-        const bValue = parseFloat(b.cells[3].textContent);
-        return bValue - aValue; // Sort from big to small
-      });
-      sortedRows.forEach(row => table.appendChild(row));
+      function sortTable(tableId) {
+        const table = document.getElementById(tableId);
+        if (table) {
+          const rows = Array.from(table.rows).slice(1);
+          const sortedRows = rows.sort((a, b) => {
+            const aValue = parseFloat(a.cells[3].textContent);
+            const bValue = parseFloat(b.cells[3].textContent);
+            return bValue - aValue; // Sort from big to small
+          });
+          sortedRows.forEach(row => table.appendChild(row));
+        }
+      }
+
+      sortTable('table1');
+      sortTable('table2');
     });
   </script>
 </head>
