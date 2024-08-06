@@ -41,34 +41,6 @@
 
   <!-- New JavaScript to sort the table on load -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var table1 = document.getElementById('table1');
-        var table2 = document.getElementById('table2');
-
-        // Initialize tablesort
-        new Tablesort(table1);
-        new Tablesort(table2);
-
-        // Sort by the 'Overall' column (index 3, zero-based index)
-        Tablesort.sort(table1.querySelectorAll('th')[3], 'desc');
-        Tablesort.sort(table2.querySelectorAll('th')[3], 'desc');
-    });
-
-    function changeButtonText() {
-        var table1 = document.getElementById('table1');
-        var table2 = document.getElementById('table2');
-        if (table1.classList.contains('hidden')) {
-            table1.classList.remove('hidden');
-            table2.classList.add('hidden');
-        } else {
-            table1.classList.add('hidden');
-            table2.classList.remove('hidden');
-        }
-    }
-</script>
-
-
 </head>
 <body>
 
@@ -259,7 +231,7 @@
   <div class="hero-body has-text-centered">
   <h1 class="title is-1 mmmu">
     <img src="static/images/sgp_icon.png" style="width:1em;vertical-align: middle" alt="Logo"/>
-    <span class="mmmu" style="vertical-align: middle">SGP-Bench</span>
+    <span class="mmmu" style="vertical-align: middle">SGP-Bench-xxx</span>
   </h1>
   </div>
 </section>
@@ -1511,6 +1483,37 @@
 </footer>
 
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Initialize tablesort
+      new Tablesort(document.getElementById('table1'));
+      new Tablesort(document.getElementById('table2'));
+
+      // Function to sort by 'Overall' column
+      function sortByOverall(tableId) {
+          var table = document.getElementById(tableId);
+          var overallHeader = table.querySelectorAll('th')[3];
+          if (overallHeader) {
+              Tablesort.sort(overallHeader, 'desc');
+          }
+      }
+
+      // Sort both tables by the 'Overall' column on page load
+      sortByOverall('table1');
+      sortByOverall('table2');
+  });
+
+  function changeButtonText() {
+      var table1 = document.getElementById('table1');
+      var table2 = document.getElementById('table2');
+      if (table1.classList.contains('hidden')) {
+          table1.classList.remove('hidden');
+          table2.classList.add('hidden');
+      } else {
+          table1.classList.add('hidden');
+          table2.classList.remove('hidden');
+      }
+  }
+
   function changeButtonText() {
     var button = document.getElementById('toggleButton');
     if (button.innerHTML.includes("SGP-Bench (SVG) Leaderboard")) {
