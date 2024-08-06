@@ -39,26 +39,8 @@
   <script src="./data/results/model_scores.js" defer></script>
   <script src="./visualizer/data/data_public.js" defer></script>
 
-  <!-- New JavaScript to sort the table on load -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      function sortTable(tableId) {
-        const table = document.getElementById(tableId);
-        if (table) {
-          const rows = Array.from(table.rows).slice(1);
-          const sortedRows = rows.sort((a, b) => {
-            const aValue = parseFloat(a.cells[3].textContent);
-            const bValue = parseFloat(b.cells[3].textContent);
-            return bValue - aValue; // Sort from big to small
-          });
-          sortedRows.forEach(row => table.appendChild(row));
-        }
-      }
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
 
-      sortTable('table1');
-      sortTable('table2');
-    });
-  </script>
 </head>
 <body>
 
@@ -256,23 +238,14 @@
 <div class="container">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <!-- <h2 class="title is-3" id="leaderboard">Leaderboard</h2>  -->
-        <!-- H2 can be hidden if you want to replace it with the button -->
-        <!-- <div class="content"> -->
-          <!-- <div class="content has-text-justified"> -->
-            <!-- <p>
-              We evaluate various closed- and open-source LLMs, with the table will keep being updated continuously.
-
-            </p> -->
-          <!-- </div> -->
-          <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold;">
-            <b>SGP-Bench (SVG) Leaderboard</b> (Click to Switch)
-          </button>
-          <div class="model-labels-container">
+        <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold;">
+          <b>SGP-Bench (SVG) Leaderboard</b> (Click to Switch)
+        </button>
+        <div class="model-labels-container">
             <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
-		   <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">Open-Source (Code)</span>
+            <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">Open-Source (Code)</span>
             <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">Proprietary</span>
-          </div>
+        </div>
           <!-- Validation Set Leaderboard -->
           <table id="table1" class="js-sort-table">
             <tr>
@@ -1501,6 +1474,42 @@
 </footer>
 
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Initialize tablesort for both tables
+      var table1 = new Tablesort(document.getElementById('table1'));
+      var table2 = new Tablesort(document.getElementById('table2'));
+
+      // Sort the tables by the 'Overall' column (index 3)
+      function sortByOverall(table) {
+          var rows = Array.from(table.querySelectorAll('tbody > tr'));
+          rows.sort((rowA, rowB) => {
+              var cellA = parseFloat(rowA.cells[3].textContent);
+              var cellB = parseFloat(rowB.cells[3].textContent);
+              return cellB - cellA;
+          });
+          rows.forEach(row => table.querySelector('tbody').appendChild(row));
+      }
+
+      // Sort both tables by the 'Overall' column on page load
+      sortByOverall(document.getElementById('table1'));
+      sortByOverall(document.getElementById('table2'));
+  });
+
+  function changeButtonText() {
+      var table1 = document.getElementById('table1');
+      var table2 = document.getElementById('table2');
+      if (table1.classList.contains('hidden')) {
+          table1.classList.remove('hidden');
+          table2.classList.add('hidden');
+      } else {
+          table1.classList.add('hidden');
+          table2.classList.remove('hidden');
+      }
+  }
+
+
+
+
   function changeButtonText() {
     var button = document.getElementById('toggleButton');
     if (button.innerHTML.includes("SGP-Bench (SVG) Leaderboard")) {
