@@ -40,7 +40,25 @@
   <script src="./visualizer/data/data_public.js" defer></script>
 
   <!-- New JavaScript to sort the table on load -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function sortTable(tableId) {
+        const table = document.getElementById(tableId);
+        if (table) {
+          const rows = Array.from(table.rows).slice(1);
+          const sortedRows = rows.sort((a, b) => {
+            const aValue = parseFloat(a.cells[3].textContent);
+            const bValue = parseFloat(b.cells[3].textContent);
+            return bValue - aValue; // Sort from big to small
+          });
+          sortedRows.forEach(row => table.appendChild(row));
+        }
+      }
+
+      sortTable('table1');
+      sortTable('table2');
+    });
+  </script>
 </head>
 <body>
 
@@ -231,7 +249,7 @@
   <div class="hero-body has-text-centered">
   <h1 class="title is-1 mmmu">
     <img src="static/images/sgp_icon.png" style="width:1em;vertical-align: middle" alt="Logo"/>
-    <span class="mmmu" style="vertical-align: middle">SGP-Bench-xxx</span>
+    <span class="mmmu" style="vertical-align: middle">SGP-Bench</span>
   </h1>
   </div>
 </section>
@@ -790,7 +808,7 @@
               <td>26.8</td>
             </tr>
           </table>
-            <p class="validation-desc"> Overall results of different models on the SGP-Bench (SVG).</p>
+            <p class="validation-desc"> Overall results of different models on the SGP-Bench (SVG). The best-performing model in each category is <b>in-bold</b>.</p>
           <!-- SGP-Bench (CAD) Leaderboard -->
           <table id="table2" class="js-sort-table hidden">
             <tr>
@@ -1483,37 +1501,6 @@
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-      // Initialize tablesort
-      new Tablesort(document.getElementById('table1'));
-      new Tablesort(document.getElementById('table2'));
-
-      // Function to sort by 'Overall' column
-      function sortByOverall(tableId) {
-          var table = document.getElementById(tableId);
-          var overallHeader = table.querySelectorAll('th')[3];
-          if (overallHeader) {
-              Tablesort.sort(overallHeader, 'desc');
-          }
-      }
-
-      // Sort both tables by the 'Overall' column on page load
-      sortByOverall('table1');
-      sortByOverall('table2');
-  });
-
-  function changeButtonText() {
-      var table1 = document.getElementById('table1');
-      var table2 = document.getElementById('table2');
-      if (table1.classList.contains('hidden')) {
-          table1.classList.remove('hidden');
-          table2.classList.add('hidden');
-      } else {
-          table1.classList.add('hidden');
-          table2.classList.remove('hidden');
-      }
-  }
-
   function changeButtonText() {
     var button = document.getElementById('toggleButton');
     if (button.innerHTML.includes("SGP-Bench (SVG) Leaderboard")) {
