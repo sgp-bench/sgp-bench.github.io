@@ -80,12 +80,12 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title is-bold">
             <img src="static/images/sgp_icon.png" style="width:1em;vertical-align: middle" alt="Logo"/> 
-            <span class="mmmu" style="vertical-align: middle">SGP-BENCH</span>
+            <span class="mmmu" style="vertical-align: middle">SGP-Bench</span>
             </h1>
           <h2 class="subtitle is-3 publication-subtitle">
             Can Large Language Models Understand 
             <br>
-            Symbolic Graphics Programs?
+            <strong>S</strong>ymbolic <strong>G</strong>raphics <strong>P</strong>rograms?
           </h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -179,7 +179,7 @@
               
               <!-- Leaderboard Link. -->
               <span class="link-block">
-                <a href="#leaderboard"
+                <a href="#toggleButton"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon has-text-white">
                     <i class="fa-solid fa-trophy"></i>
@@ -243,108 +243,21 @@
   </h1>
   </div>
 </section>
-            
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
-        <div class="content has-text-justified">
-          <p>
-We introduce the task of semantic symbolic graphics program understanding, where our goal is to assess to what extent a LLM is able to understand the symbolic graphics program, which may begin to belie some latent capability to ``visually imagine''. Specifically, we take advantage of the correspondence between symbolic graphics programs and rendered images, and then we characterize the understanding of symbolic graphics programs as the semantic understanding of the corresponding rendered image. To do so, we use the performance on question-answering to evaluate the semantic understanding of images. The same set of questions, along with the corresponding symbolic graphics programs, are then used to evaluate the symbolic program understanding of LLMs. A brief illustration of symbolic graphics program understanding is given in the following figure. The intuition behind this evaluation is that, if an LLM really has a good sense of the symbolic graphics, then the LLM should have a rough understanding about its rendered image such that it is able answer arbitrary semantic questions regarding this rendered image.
-          </p>
-          <img src="static/images/SGP_illu.png" alt="algebraic reasoning" class="center">
-          <br>
-          <p>
-Symbolic graphics program understanding can also be viewed as a form of visual question answering in the sense that visual input is represented by a symbolic program representation. Compared to existing vision-language models that encodes images with a text-aligned neural encoder, our paper considers the case where the visual input are encoded by a symbolic program that can exactly recover the graphics content. From this perspective, our task aims to study and uncover the potential of using symbolic programs as a representation to perform visual reasoning.
-          </p>
-        </div>
-    </div>
-    </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Consistency Test</h2>
-        <div class="content has-text-justified">
-          <p>
-Large language models (LLMs) are exposed to vast amounts of online data, including open-access SVG data. To investigate whether their semantic understanding ability is due to potential data leakage, we propose a semantic consistency test by introducing global translations or rotations to SVG graphics, ensuring SE(2) invariance. Such spatial interventions fundamentally alter the code representation, as SVG graphics consist of lines and Bezier curves with anchor points, and SE(2) operations change all numerical values in the code. However, the SVG's semantics—such as shape or color—remain unaffected by this perturbation. This allows us to examine how LLMs respond when the same vector graphics are presented with drastic code-numerical changes. If the model maintains consistency under these conditions, it suggests that the semantic understanding is likely based on a fundamental level of comprehension or visual imagery rather than mere memorization of the code.
-        </p>
-        <div class="content has-text-centered">
-          <img src="static/images/consistency.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
-          <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
-        </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Dataset Creation Pipeline</h2>
-        <div class="content has-text-justified">
-          <p>
-To construct our benchmark, we need questions about a symbolic program based on its rendered image. To build a large benchmark, it is essential that we consider how we can effectively scale up the question collection with minimal human labeling efforts. To this end, we use a powerful large vision-language model (e.g., GPT-4o) to generate many semantic questions based on the rendered images, and then we inspect them manually to make sure that most of the questions are reasonable and the answer to them is also correct. We also run a human study over 500 of the automatically generated questions along with the corresponding images, and find high agreement. The overall procedure for our dataset creation is given in the following figure: 
-          </p>
-          <img src="static/images/sgp_data_creation.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
-          <br>
-          <p>
-In this pipeline, the rendering of symbolic programs and the GPT-4o querying are both scalable and can be done with minimal human involvement. Human annotators then inspect the generated question-answer pairs based on the rendered image, which requires much less efforts than manually writing questions and answers. We emphasize that this program-question-answer triplet data creation method is general, as it works for most of the symbolic graphics programs. SVG programs can directly produce 2D images, so it is straightforward to use this pipeline. For CAD programs, they produce 3D models and we first render them into 2D images with a few fixed camera positions. These rendered images from different views are then combined together to query GPT-4o, and the following procedures are identical to the SVG case.
-          </p>
-        </div>
-    </div>
-    </div>
-
-  </div>
-	<!--
+<div class="container">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">Statistics</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/mmmu_subject_distribution.Jpeg" alt="algebraic reasoning" width="95%"/>
-              <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/statistics.png" alt="arithmetic reasoning" width="40%"/>
-              <p> Key statistics of the MMMU benchmark</p>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/image_type_count.png" alt="arithmetic reasoning" width="80%"/>
-              <p> Distribution of image types in the MMMU dataset</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
--->
-</section>
-
-<!-- RESULTS SECTION -->
-<section class="hero is-light is-small">
-  <div class="hero-body has-text-centered">
-    <h1 class="title is-1 mmmu">Experiment Results</h1>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-<!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
-    <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
-        <div class="content">
-          <div class="content has-text-justified">
-            <p>
+        <!-- <h2 class="title is-3" id="leaderboard">Leaderboard</h2>  -->
+        <!-- H2 can be hidden if you want to replace it with the button -->
+        <!-- <div class="content"> -->
+          <!-- <div class="content has-text-justified"> -->
+            <!-- <p>
               We evaluate various closed- and open-source LLMs, with the table will keep being updated continuously.
 
-            </p>
-          </div>
-
-          <button id="toggleButton" onclick="changeButtonText()"><b style='font-size: larger;'>SGP-Bench (SVG) Leaderboard</b> (Click to Switch)</button>
+            </p> -->
+          <!-- </div> -->
+          <button id="toggleButton" onclick="changeButtonText()" style="font-size: 1.75rem; font-weight: bold;">
+            <b>SGP-Bench (SVG) Leaderboard</b> (Click to Switch)
+          </button>
           <div class="model-labels-container">
             <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
 		   <span class="leaderboard-label" style="background-color: rgba(255, 208, 80, 0.15);">Open-Source (Code)</span>
@@ -1353,6 +1266,98 @@ In this pipeline, the rendering of symbolic programs and the GPT-4o querying are
         </div>
       </div>
     </div>
+            
+  <!-- </div> -->
+	<!--
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Statistics</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/mmmu_subject_distribution.Jpeg" alt="algebraic reasoning" width="95%"/>
+              <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/statistics.png" alt="arithmetic reasoning" width="40%"/>
+              <p> Key statistics of the MMMU benchmark</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/image_type_count.png" alt="arithmetic reasoning" width="80%"/>
+              <p> Distribution of image types in the MMMU dataset</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+</section>
+
+<!-- RESULTS SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mmmu">Building SGP-Bench</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+<!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Symbolic Graphics Program Understanding</h2>
+        <div class="content has-text-justified">
+          <p>
+We introduce the task of semantic symbolic graphics program understanding, where our goal is to assess to what extent a LLM is able to understand the symbolic graphics program, which may begin to belie some latent capability to ``visually imagine''. Specifically, we take advantage of the correspondence between symbolic graphics programs and rendered images, and then we characterize the understanding of symbolic graphics programs as the semantic understanding of the corresponding rendered image. To do so, we use the performance on question-answering to evaluate the semantic understanding of images. The same set of questions, along with the corresponding symbolic graphics programs, are then used to evaluate the symbolic program understanding of LLMs. A brief illustration of symbolic graphics program understanding is given in the following figure. The intuition behind this evaluation is that, if an LLM really has a good sense of the symbolic graphics, then the LLM should have a rough understanding about its rendered image such that it is able answer arbitrary semantic questions regarding this rendered image.
+          </p>
+          <img src="static/images/SGP_illu.png" alt="algebraic reasoning" class="center">
+          <br>
+          <p>
+Symbolic graphics program understanding can also be viewed as a form of visual question answering in the sense that visual input is represented by a symbolic program representation. Compared to existing vision-language models that encodes images with a text-aligned neural encoder, our paper considers the case where the visual input are encoded by a symbolic program that can exactly recover the graphics content. From this perspective, our task aims to study and uncover the potential of using symbolic programs as a representation to perform visual reasoning.
+          </p>
+        </div>
+    </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">SE(2) Consistency Test</h2>
+        <div class="content has-text-justified">
+          <p>
+Large language models (LLMs) are exposed to vast amounts of online data, including open-access SVG data. To investigate whether their semantic understanding ability is due to potential data leakage, we propose a semantic consistency test by introducing global translations or rotations to SVG graphics, ensuring SE(2) invariance. Such spatial interventions fundamentally alter the code representation, as SVG graphics consist of lines and Bezier curves with anchor points, and SE(2) operations change all numerical values in the code. However, the SVG's semantics—such as shape or color—remain unaffected by this perturbation. This allows us to examine how LLMs respond when the same vector graphics are presented with drastic code-numerical changes. If the model maintains consistency under these conditions, it suggests that the semantic understanding is likely based on a fundamental level of comprehension or visual imagery rather than mere memorization of the code.
+        </p>
+        <div class="content has-text-centered">
+          <img src="static/images/consistency.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
+          <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset Creation Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+To construct our benchmark, we need questions about a symbolic program based on its rendered image. To build a large benchmark, it is essential that we consider how we can effectively scale up the question collection with minimal human labeling efforts. To this end, we use a powerful large vision-language model (e.g., GPT-4o) to generate many semantic questions based on the rendered images, and then we inspect them manually to make sure that most of the questions are reasonable and the answer to them is also correct. We also run a human study over 500 of the automatically generated questions along with the corresponding images, and find high agreement. The overall procedure for our dataset creation is given in the following figure: 
+          </p>
+          <img src="static/images/sgp_data_creation.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
+          <br>
+          <p>
+In this pipeline, the rendering of symbolic programs and the GPT-4o querying are both scalable and can be done with minimal human involvement. Human annotators then inspect the generated question-answer pairs based on the rendered image, which requires much less efforts than manually writing questions and answers. We emphasize that this program-question-answer triplet data creation method is general, as it works for most of the symbolic graphics programs. SVG programs can directly produce 2D images, so it is straightforward to use this pipeline. For CAD programs, they produce 3D models and we first render them into 2D images with a few fixed camera positions. These rendered images from different views are then combined together to query GPT-4o, and the following procedures are identical to the SVG case.
+          </p>
+        </div>
+    </div>
+    </div>
+
+  </div>
 
 <!-------------------------------------------------------------------- Error Example  -------------------------------------------------------------------->
 
