@@ -1276,36 +1276,6 @@
         </div>
       </div>
     </div>
-            
-  <!-- </div> -->
-	<!--
-    <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">Statistics</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/mmmu_subject_distribution.Jpeg" alt="algebraic reasoning" width="95%"/>
-              <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/statistics.png" alt="arithmetic reasoning" width="40%"/>
-              <p> Key statistics of the MMMU benchmark</p>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/image_type_count.png" alt="arithmetic reasoning" width="80%"/>
-              <p> Distribution of image types in the MMMU dataset</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
--->
 </section>
 
 <!-- RESULTS SECTION -->
@@ -1318,176 +1288,172 @@
 
 <section class="section">
   <div class="container">
-<!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
 
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Symbolic Graphics Program Understanding</h2>
-        <div class="content has-text-justified">
-          <p>
-We introduce the task of semantic symbolic graphics program understanding, where our goal is to assess to what extent a LLM is able to understand the symbolic graphics program, which may begin to belie some latent capability to ``visually imagine''. Specifically, we take advantage of the correspondence between symbolic graphics programs and rendered images, and then we characterize the understanding of symbolic graphics programs as the semantic understanding of the corresponding rendered image. To do so, we use the performance on question-answering to evaluate the semantic understanding of images. The same set of questions, along with the corresponding symbolic graphics programs, are then used to evaluate the symbolic program understanding of LLMs. A brief illustration of symbolic graphics program understanding is given in the following figure. The intuition behind this evaluation is that, if an LLM really has a good sense of the symbolic graphics, then the LLM should have a rough understanding about its rendered image such that it is able answer arbitrary semantic questions regarding this rendered image.
-          </p>
-          <img src="static/images/SGP_illu.png" alt="algebraic reasoning" class="center">
-          <br>
-          <p>
-Symbolic graphics program understanding can also be viewed as a form of visual question answering in the sense that visual input is represented by a symbolic program representation. Compared to existing vision-language models that encodes images with a text-aligned neural encoder, our paper considers the case where the visual input are encoded by a symbolic program that can exactly recover the graphics content. From this perspective, our task aims to study and uncover the potential of using symbolic programs as a representation to perform visual reasoning.
-          </p>
+    <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Symbolic Graphics Program Understanding</h2>
+            <div class="content has-text-justified">
+              <p>
+                We introduce the task of semantic symbolic graphics program understanding, where our goal is to assess to what extent a LLM is able to understand the symbolic graphics program, which may begin to belie some latent capability to ``visually imagine''. Specifically, we take advantage of the correspondence between symbolic graphics programs and rendered images, and then we characterize the understanding of symbolic graphics programs as the semantic understanding of the corresponding rendered image. To do so, we use the performance on question-answering to evaluate the semantic understanding of images. The same set of questions, along with the corresponding symbolic graphics programs, are then used to evaluate the symbolic program understanding of LLMs. A brief illustration of symbolic graphics program understanding is given in the following figure. The intuition behind this evaluation is that, if an LLM really has a good sense of the symbolic graphics, then the LLM should have a rough understanding about its rendered image such that it is able answer arbitrary semantic questions regarding this rendered image.
+              </p>
+              <img src="static/images/SGP_illu.png" alt="algebraic reasoning" class="center">
+              <br>
+              <p>
+                Symbolic graphics program understanding can also be viewed as a form of visual question answering in the sense that visual input is represented by a symbolic program representation. Compared to existing vision-language models that encodes images with a text-aligned neural encoder, our paper considers the case where the visual input are encoded by a symbolic program that can exactly recover the graphics content. From this perspective, our task aims to study and uncover the potential of using symbolic programs as a representation to perform visual reasoning.
+              </p>
+            </div>
+          </div>
         </div>
-    </div>
-    </div>
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">SE(2) Consistency Test</h2>
-        <div class="content has-text-justified">
-          <p>
-Large language models (LLMs) are exposed to vast amounts of online data, including open-access SVG data. To investigate whether their semantic understanding ability is due to potential data leakage, we propose a semantic consistency test by introducing global translations or rotations to SVG graphics, ensuring SE(2) invariance. Such spatial interventions fundamentally alter the code representation, as SVG graphics consist of lines and Bezier curves with anchor points, and SE(2) operations change all numerical values in the code. However, the SVG's semantics—such as shape or color—remain unaffected by this perturbation. This allows us to examine how LLMs respond when the same vector graphics are presented with drastic code-numerical changes. If the model maintains consistency under these conditions, it suggests that the semantic understanding is likely based on a fundamental level of comprehension or visual imagery rather than mere memorization of the code.
-        </p>
-        <div class="content has-text-centered">
-          <img src="static/images/consistency.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
-          <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">SE(2) Consistency Test</h2>
+            <div class="content has-text-justified">
+              <p>
+                Large language models (LLMs) are exposed to vast amounts of online data, including open-access SVG data. To investigate whether their semantic understanding ability is due to potential data leakage, we propose a semantic consistency test by introducing global translations or rotations to SVG graphics, ensuring SE(2) invariance. Such spatial interventions fundamentally alter the code representation, as SVG graphics consist of lines and Bezier curves with anchor points, and SE(2) operations change all numerical values in the code. However, the SVG's semantics—such as shape or color—remain unaffected by this perturbation. This allows us to examine how LLMs respond when the same vector graphics are presented with drastic code-numerical changes. If the model maintains consistency under these conditions, it suggests that the semantic understanding is likely based on a fundamental level of comprehension or visual imagery rather than mere memorization of the code.
+              </p>
+              <div class="content has-text-centered">
+                <img src="static/images/consistency.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
+                <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-    </div>
-    </div>
 
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Dataset Creation Pipeline</h2>
-        <div class="content has-text-justified">
-          <p>
-To construct our benchmark, we need questions about a symbolic program based on its rendered image. To build a large benchmark, it is essential that we consider how we can effectively scale up the question collection with minimal human labeling efforts. To this end, we use a powerful large vision-language model (e.g., GPT-4o) to generate many semantic questions based on the rendered images, and then we inspect them manually to make sure that most of the questions are reasonable and the answer to them is also correct. We also run a human study over 500 of the automatically generated questions along with the corresponding images, and find high agreement. The overall procedure for our dataset creation is given in the following figure: 
-          </p>
-          <img src="static/images/sgp_data_creation.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
-          <br>
-          <p>
-In this pipeline, the rendering of symbolic programs and the GPT-4o querying are both scalable and can be done with minimal human involvement. Human annotators then inspect the generated question-answer pairs based on the rendered image, which requires much less efforts than manually writing questions and answers. We emphasize that this program-question-answer triplet data creation method is general, as it works for most of the symbolic graphics programs. SVG programs can directly produce 2D images, so it is straightforward to use this pipeline. For CAD programs, they produce 3D models and we first render them into 2D images with a few fixed camera positions. These rendered images from different views are then combined together to query GPT-4o, and the following procedures are identical to the SVG case.
-          </p>
-        </div>
-    </div>
-    </div>
-
-  </div>
-
-
-  <!-- SIT SECTION -->
-<section class="hero is-light is-small">
-  <div class="hero-body has-text-centered">
-    <h1 class="title is-1 mmmu">Symbolic Instruction Tuning (SIT)</h1>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-<!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
-
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Boosting Symbolic Program Understanding: SIT-55K</h2>
-        <div class="content has-text-justified">
-          <p>
-            Inspired by how visual instruction tuning (e.g., LLaVa) enables large vision-language models to understand images with visual-question-answering (VQA) data, we aim to perform symbolic instruction tuning for LLMs to better bridge the gap between the semantic understanding and the symbolic reasoning within the graphics programs. While there exist no semantic instruction-following datasets directly over symbolic programs, these symbolic graphics programs can rendered into 2D images with which we can easily query powerful vision-language models (e.g., GPT-4o is used in our case) to obtain a detailed semantic captioning based on the rendered image. The intuition is straightforward, as we want to build an intrinsic connection for LLMs between semantic natural language description and symbolic graphics programs. The instruction data is created in a similar spirit to our benchmark. We leverage the correspondence between symbolic problems and graphics content, and then use the rendered images to obtain semantically rich description.  Following this idea, we construct the first semantic description dataset for symbolic graphics programs. Specifically, for each image rendered from a symbolic graphics program, we prompt GPT-4o to produce a detailed and semantically-rich description. Finally, we end up with a dataset that contains semantic descriptions for totally <b>55K</b> symbolic programs. We generally follow the standard instruction fine-tuning procedure (including the default hyperparameter settings) from Alpaca and use supervised finetuning to train open-source LLMs with our own symbolic instruction data.
-          </p>
-        </div>
-    </div>
-    </div>
-
-  </div>
-
-<!-------------------------------------------------------------------- Error Example  -------------------------------------------------------------------->
-
-    <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3" id="examples">SGP-Bench Examples</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sgp/sgp_svg_1.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sgp/sgp_svg_2.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sgp/sgp_svg_3.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sgp/sgp_svg_4.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sgp/sgp_svg_5.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sgp/sgp_svg_6.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sgp/sgp_cad_1.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sgp/sgp_cad_2.jpeg" alt="grade-lv"/>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Dataset Creation Pipeline</h2>
+            <div class="content has-text-justified">
+              <p>
+                To construct our benchmark, we need questions about a symbolic program based on its rendered image. To build a large benchmark, it is essential that we consider how we can effectively scale up the question collection with minimal human labeling efforts. To this end, we use a powerful large vision-language model (e.g., GPT-4o) to generate many semantic questions based on the rendered images, and then we inspect them manually to make sure that most of the questions are reasonable and the answer to them is also correct. We also run a human study over 500 of the automatically generated questions along with the corresponding images, and find high agreement. The overall procedure for our dataset creation is given in the following figure: 
+              </p>
+              <img src="static/images/sgp_data_creation.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
+              <br>
+              <p>
+                In this pipeline, the rendering of symbolic programs and the GPT-4o querying are both scalable and can be done with minimal human involvement. Human annotators then inspect the generated question-answer pairs based on the rendered image, which requires much less efforts than manually writing questions and answers. We emphasize that this program-question-answer triplet data creation method is general, as it works for most of the symbolic graphics programs. SVG programs can directly produce 2D images, so it is straightforward to use this pipeline. For CAD programs, they produce 3D models and we first render them into 2D images with a few fixed camera positions. These rendered images from different views are then combined together to query GPT-4o, and the following procedures are identical to the SVG case.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-<!-------------------------------------------------------------------- Correct Example -------------------------------------------------------------------->
+    </section>
 
-    <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">SIT Examples</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sit/sgp_sit_1.jpeg" alt="grade-lv"/>
+    <!-- SIT SECTION -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 mmmu">Symbolic Instruction Tuning (SIT)</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+        <section class="section">
+          <div class="container">
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <h2 class="title is-3">Boosting Symbolic Program Understanding: SIT-55K</h2>
+                <div class="content has-text-justified">
+                  <p>
+                    Inspired by how visual instruction tuning (e.g., LLaVa) enables large vision-language models to understand images with visual-question-answering (VQA) data, we aim to perform symbolic instruction tuning for LLMs to better bridge the gap between the semantic understanding and the symbolic reasoning within the graphics programs. While there exist no semantic instruction-following datasets directly over symbolic programs, these symbolic graphics programs can be rendered into 2D images with which we can easily query powerful vision-language models (e.g., GPT-4o is used in our case) to obtain a detailed semantic captioning based on the rendered image. The intuition is straightforward, as we want to build an intrinsic connection for LLMs between semantic natural language description and symbolic graphics programs. The instruction data is created in a similar spirit to our benchmark. We leverage the correspondence between symbolic problems and graphics content, and then use the rendered images to obtain semantically rich descriptions. Following this idea, we construct the first semantic description dataset for symbolic graphics programs. Specifically, for each image rendered from a symbolic graphics program, we prompt GPT-4o to produce a detailed and semantically-rich description. Finally, we end up with a dataset that contains semantic descriptions for totally <b>55K</b> symbolic programs. We generally follow the standard instruction fine-tuning procedure (including the default hyperparameter settings) from Alpaca and use supervised finetuning to train open-source LLMs with our own symbolic instruction data.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sit/sgp_sit_2.jpeg" alt="grade-lv"/>
+        </section>
+
+        <!-------------------------------------------------------------------- Error Example  -------------------------------------------------------------------->
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3" id="examples">SGP-Bench Examples</h2>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sgp/sgp_svg_1.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sgp/sgp_svg_2.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sgp/sgp_svg_3.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sgp/sgp_svg_4.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sgp/sgp_svg_5.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sgp/sgp_svg_6.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sgp/sgp_cad_1.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sgp/sgp_cad_2.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sit/sgp_sit_3.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sit/sgp_sit_4.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sit/sgp_sit_5.jpeg" alt="grade-lv"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="static/images/sit/sgp_sit_6.jpeg" alt="grade-lv"/>
+        </div>
+        <!-------------------------------------------------------------------- Correct Example -------------------------------------------------------------------->
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3">SIT Examples</h2>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sit/sgp_sit_1.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sit/sgp_sit_2.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sit/sgp_sit_3.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sit/sgp_sit_4.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sit/sgp_sit_5.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/sit/sgp_sit_6.jpeg" alt="grade-lv"/>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-<!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
-
-
+    </section>
   </div>
 </section>
 
