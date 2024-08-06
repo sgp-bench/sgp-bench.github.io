@@ -40,67 +40,33 @@
   <script src="./visualizer/data/data_public.js" defer></script>
 
   <!-- New JavaScript to sort the table on load -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      function sortTable(tableId, columnIndex = 3, ascending = false) {
-        const table = document.getElementById(tableId);
-        if (table) {
-          const rows = Array.from(table.rows).slice(1);
-          const sortedRows = rows.sort((a, b) => {
-            const aValue = parseFloat(a.cells[columnIndex].textContent) || a.cells[columnIndex].textContent.toLowerCase();
-            const bValue = parseFloat(b.cells[columnIndex].textContent) || b.cells[columnIndex].textContent.toLowerCase();
-            if (aValue < bValue) {
-              return ascending ? -1 : 1;
-            }
-            if (aValue > bValue) {
-              return ascending ? 1 : -1;
-            }
-            return 0;
-          });
-          sortedRows.forEach(row => table.appendChild(row));
-        }
-      }
+    document.addEventListener('DOMContentLoaded', function () {
+        var table1 = document.getElementById('table1');
+        var table2 = document.getElementById('table2');
 
-      function renderTable() {
-        const tableContainer = document.getElementById('tableContainer');
-        tableContainer.innerHTML = `
-          <table id="table1" class="js-sort-table">
-            <thead>
-              <tr>
-                <th class="js-sort-number">Reset</th>
-                <th class="js-sort-string">Size</th>
-                <th class="js-sort-date">Date</th>
-                <th class="js-sort-number">Overall</th>
-                <th class="js-sort-number">Semantics</th>
-                <th class="js-sort-number">Count</th>
-                <th class="js-sort-number">Color</th>
-                <th class="js-sort-number">Shape</th>
-                <th class="js-sort-number">Reasoning</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Table rows go here -->
-            </tbody>
-          </table>
-        `;
-        sortTable('table1');
-      }
+        // Initialize tablesort
+        new Tablesort(table1);
+        new Tablesort(table2);
 
-      function resetTable() {
-        const table = document.getElementById('table1');
-        if (table) {
-          const headers = table.querySelectorAll('th');
-          headers.forEach(header => {
-            const newHeader = header.cloneNode(true);
-            header.parentNode.replaceChild(newHeader, header); // Remove existing event listeners
-          });
-        }
-        sortTable('table1');
-      }
-
-      renderTable();
+        // Sort by the 'Overall' column (index 3, zero-based index)
+        Tablesort.sort(table1.querySelectorAll('th')[3], 'desc');
+        Tablesort.sort(table2.querySelectorAll('th')[3], 'desc');
     });
-  </script>
+
+    function changeButtonText() {
+        var table1 = document.getElementById('table1');
+        var table2 = document.getElementById('table2');
+        if (table1.classList.contains('hidden')) {
+            table1.classList.remove('hidden');
+            table2.classList.add('hidden');
+        } else {
+            table1.classList.add('hidden');
+            table2.classList.remove('hidden');
+        }
+    }
+</script>
 
 
 </head>
