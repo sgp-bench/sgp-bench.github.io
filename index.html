@@ -1340,120 +1340,131 @@
         </div>
       </div>
     </section>
+    </div>
+  </section>
 
-    <!-- SIT SECTION -->
-    <section class="hero is-light is-small">
-      <div class="hero-body has-text-centered">
-        <h1 class="title is-1 mmmu">Symbolic Instruction Tuning (SIT)</h1>
-      </div>
-    </section>
+<!-- SIT SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mmmu">Symbolic Instruction Tuning (SIT)</h1>
+  </div>
+</section>
 
+<section class="section">
+  <div class="container">
+    <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
     <section class="section">
       <div class="container">
-        <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
-        <section class="section">
-          <div class="container">
-            <div class="columns is-centered has-text-centered">
-              <div class="column is-four-fifths">
-                <h2 class="title is-3">Boosting Symbolic Program Understanding: SIT-55K</h2>
-                <div class="content has-text-justified">
-                  <p>
-                    Inspired by how visual instruction tuning (e.g., LLaVa) enables large vision-language models to understand images with visual-question-answering (VQA) data, we aim to perform symbolic instruction tuning for LLMs to better bridge the gap between the semantic understanding and the symbolic reasoning within the graphics programs. While there exist no semantic instruction-following datasets directly over symbolic programs, these symbolic graphics programs can be rendered into 2D images with which we can easily query powerful vision-language models (e.g., GPT-4o is used in our case) to obtain a detailed semantic captioning based on the rendered image. The intuition is straightforward, as we want to build an intrinsic connection for LLMs between semantic natural language description and symbolic graphics programs. The instruction data is created in a similar spirit to our benchmark. We leverage the correspondence between symbolic problems and graphics content, and then use the rendered images to obtain semantically rich descriptions. Following this idea, we construct the first semantic description dataset for symbolic graphics programs. Specifically, for each image rendered from a symbolic graphics program, we prompt GPT-4o to produce a detailed and semantically-rich description. Finally, we end up with a dataset that contains semantic descriptions for totally <b>55K</b> symbolic programs. We generally follow the standard instruction fine-tuning procedure (including the default hyperparameter settings) from Alpaca and use supervised finetuning to train open-source LLMs with our own symbolic instruction data.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-------------------------------------------------------------------- Error Example  -------------------------------------------------------------------->
-        <div class="columns is-centered m-6">
-          <div class="column is-full has-text-centered content">
-            <h2 class="title is-3" id="examples">SGP-Bench Examples</h2>
-            <div id="results-carousel" class="carousel results-carousel">
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sgp/sgp_svg_1.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sgp/sgp_svg_2.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sgp/sgp_svg_3.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sgp/sgp_svg_4.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sgp/sgp_svg_5.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sgp/sgp_svg_6.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sgp/sgp_cad_1.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sgp/sgp_cad_2.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-------------------------------------------------------------------- Correct Example -------------------------------------------------------------------->
-        <div class="columns is-centered m-6">
-          <div class="column is-full has-text-centered content">
-            <h2 class="title is-3">SIT Examples</h2>
-            <div id="results-carousel" class="carousel results-carousel">
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sit/sgp_sit_1.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sit/sgp_sit_2.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sit/sgp_sit_3.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sit/sgp_sit_4.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sit/sgp_sit_5.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/sit/sgp_sit_6.jpeg" alt="grade-lv"/>
-                </div>
-              </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Boosting Symbolic Program Understanding: SIT-55K</h2>
+            <div class="content has-text-justified">
+              <p>
+                Inspired by how visual instruction tuning (e.g., LLaVa) enables large vision-language models to understand images with visual-question-answering (VQA) data, we aim to perform symbolic instruction tuning for LLMs to better bridge the gap between the semantic understanding and the symbolic reasoning within the graphics programs. While there exist no semantic instruction-following datasets directly over symbolic programs, these symbolic graphics programs can be rendered into 2D images with which we can easily query powerful vision-language models (e.g., GPT-4o is used in our case) to obtain a detailed semantic captioning based on the rendered image. The intuition is straightforward, as we want to build an intrinsic connection for LLMs between semantic natural language description and symbolic graphics programs. The instruction data is created in a similar spirit to our benchmark. We leverage the correspondence between symbolic problems and graphics content, and then use the rendered images to obtain semantically rich descriptions. Following this idea, we construct the first semantic description dataset for symbolic graphics programs. Specifically, for each image rendered from a symbolic graphics program, we prompt GPT-4o to produce a detailed and semantically-rich description. Finally, we end up with a dataset that contains semantic descriptions for totally <b>55K</b> symbolic programs. We generally follow the standard instruction fine-tuning procedure (including the default hyperparameter settings) from Alpaca and use supervised finetuning to train open-source LLMs with our own symbolic instruction data.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
+  </div>
+</section>
+
+<!-- Visualization SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mmmu">Visualization</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-------------------------------------------------------------------- Error Example  -------------------------------------------------------------------->
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3" id="examples">SGP-Bench Examples</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sgp/sgp_svg_1.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sgp/sgp_svg_2.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sgp/sgp_svg_3.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sgp/sgp_svg_4.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sgp/sgp_svg_5.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sgp/sgp_svg_6.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sgp/sgp_cad_1.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sgp/sgp_cad_2.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------------------------------------------------------------------- Correct Example -------------------------------------------------------------------->
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">SIT Examples</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sit/sgp_sit_1.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sit/sgp_sit_2.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sit/sgp_sit_3.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sit/sgp_sit_4.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sit/sgp_sit_5.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sit/sgp_sit_6.jpeg" alt="grade-lv"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
