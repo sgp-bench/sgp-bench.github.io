@@ -164,13 +164,24 @@
                 <a href="#toggleButton"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon has-text-white">
-                    <i class="fa-solid fa-trophy"></i>
-                      <!-- <p style="font-size:18px">🏆</p> -->
+                    <!-- <i class="fa-solid fa-trophy"></i>  -->
+                      <p style="font-size:18px">🏆</p>
                   </span>
                   <span>Leaderboard</span>
                 </a>
               </span>
 
+              <!-- SIT Link. -->
+              <span class="link-block">
+                <a href="#SIT"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon has-text-white">
+                    <!-- <i class="fa-solid fa-trophy"></i> -->
+                      <p style="font-size:18px">🚀 </p>
+                  </span>
+                  <span>SIT</span>
+                </a>
+              </span>
             
             </div>
 
@@ -1275,18 +1286,22 @@
             <p>
               Large language models (LLMs) are exposed to vast amounts of online data, including open-access SVG data. To investigate whether their semantic understanding ability is due to potential data leakage, we propose a semantic consistency test by introducing global translations or rotations to SVG graphics, ensuring SE(2) invariance. Such spatial interventions <strong>fundamentally alter the code representation</strong>, as SVG graphics consist of lines and Bezier curves with anchor points, and SE(2) operations change all numerical values in the code. However, the SVG's semantics—such as shape or color—remain unaffected by this perturbation. This allows us to examine how LLMs respond when the same vector graphics are presented with drastic code-numerical changes. If the model maintains consistency under these conditions, it suggests that the semantic understanding is likely based on a fundamental level of comprehension or visual imagery rather than mere memorization of the code.
             </p>
-            <p>
-              Our experiments with the SVG-Invariance benchmark demonstrate that <strong>most LLMs exhibit robust semantic understanding of graphics programs under translation (T) and translation + rotation (SE(2)) perturbations</strong>. Not only do the models remain consistent in their predictions under perturbations, but their performance on perturbed inputs also shows minimal fluctuation compared to their performance on the SVG-Understanding benchmark. We posit that this indicates that the semantic understanding ability that we evaluate of LLMs is unlikely due to data leakage, but rather, could stem from a potential <strong>foundational capability to interpret the semantics of deterministic, symbolic graphics programs</strong>.
-            </p>
             <div class="content has-text-centered">
               <img src="static/images/consistency.png" alt="algebraic reasoning" class="center" style="width: 40%; height: auto;">
               <p> The semantic consistency test assesses if semantic understanding remains the same when the program is perturbed without semantically changing the image content.</p>
             </div>
+            <p>
+              Our experiments with the SVG-Invariance benchmark demonstrate that <strong>most LLMs exhibit robust semantic understanding of graphics programs under translation (T) and translation + rotation (SE(2)) perturbations</strong>. Not only do the models remain consistent in their predictions under perturbations, but their performance on perturbed inputs also shows minimal fluctuation compared to their performance on the SVG-Understanding benchmark. We posit that this indicates that the semantic understanding ability that we evaluate of LLMs is unlikely due to data leakage, but rather, could stem from a potential <strong>foundational capability to interpret the semantics of deterministic, symbolic graphics programs</strong>.
+            </p>
           </div>
         </div>
       </div>
     </div>
 </section>
+
+<br>
+<br>
+
 
 <!-- BUILDING SECTION -->
 <section class="hero is-light is-small">
@@ -1343,7 +1358,7 @@
 <!-- BUILDING SECTION -->
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-    <h1 class="title is-1 mmmu">Symbolic Instruction Tuning (SIT)</h1>
+    <h1 id="SIT" class="title is-1 mmmu">Symbolic Instruction Tuning (SIT)</h1>
   </div>
 </section>
 
@@ -1367,7 +1382,7 @@
 
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Improving Generic Instruction Tuning with Symbolic Graphics Programs</h2>
+            <h2 class="title is-3">Improving Generic Reasoning with Symbolic Graphics Programs</h2>
             <div class="content has-text-justified">
               <p>
                 Our SIT data can also be used in a reverse fashion (rev-SIT), i.e., rephrasing the answer as the new question and the question as the new answer. See the comparison between original and reverse SIT data in the bellow figure. rev-SIT resembles <strong>code instructing tuning data</strong>, i.e., given an instruction, generate the corrsponding graphics code. The instruction in rev-SIT would be a text description and the LLM should learn to generate code that when it is rendered, best fit the text description.
@@ -1506,7 +1521,7 @@
 <!-- BUILDING SECTION -->
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-    <h1 class="title is-1 mmmu">LLMs still struggle to solve MNIST</h1>
+    <h1 class="title is-1 mmmu">MNIST is still non-trivial for LLMs</h1>
   </div>
 </section>
 
@@ -1519,7 +1534,7 @@
       <div class="container">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">A Challenge for SVG Program Understanding</h2>
+            <h2 class="title is-3">SGP-MNIST: an MNIST challenge with SVG representation</h2>
             <div class="content has-text-justified">
               <p>
                 Is it really easy to answer semantic reasoning questions over symbolic graphics programs? We provide an intriguing experiment to demonstrate that SVG programs can be quite difficult for LLMs to understand such that even if the corresponding rendered images are fairly easy for humans to recognize, all these powerful LLMs still fail dramatically, only reaching a chance-level accuracy. Specifically, we construct symbolic graphics programs that can produce MNIST-like images, as shown in bellow image. 
@@ -1588,7 +1603,7 @@
 <!-- Visualization SECTION -->
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-    <h1 class="title is-1 mmmu">Visualization</h1>
+    <h1 class="title is-1 mmmu">Dataset Examples</h1>
   </div>
 </section>
 
@@ -1597,8 +1612,13 @@
     <!-------------------------------------------------------------------- Error Example  -------------------------------------------------------------------->
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <h2 class="title is-3" id="examples">SGP-Bench Examples</h2>
+        <h2 class="title is-3" id="examples">Code Examples</h2>
         <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/dataset_exp.png" alt="grade-lv"/>
+            </div>
+          </div>
           <div class="box m-5">
             <div class="content has-text-centered">
               <img src="static/images/sgp/sgp_svg_1.jpeg" alt="grade-lv"/>
