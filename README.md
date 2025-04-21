@@ -1,7 +1,7 @@
 # SGP-Bench
 Homepage of SGP-Bench, "Can Large Language Models Understand Symbolic Graphics Programs?". 
 
-We are happe to annouce that our paper "Can Large Language Models Understand Symbolic Graphics Programs?" has been selected as **spotlight** at **ICLR 2025**. 
+🎉 We are happy to announce that our paper "Can Large Language Models Understand Symbolic Graphics Programs?" has been selected as **spotlight** at **ICLR 2025**. 🎉
 
 This website is adapted from [MMMU](https://mmmu-benchmark.github.io/) and [MathVista](https://mathvista.github.io/).
 
